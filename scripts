@@ -1,3 +1,5 @@
 #kill#:flightschedule
 #kill#:excel
 #scripts#:UPDATE SysUser SET email = 'smis@sags.vn' WHERE UserId = 'DS'
+#scripts#:IF EXISTS (SELECT TOP 1 1 FROM DBO.SYSOBJECTS WHERE ID = OBJECT_ID(N'[DBO].[OAP]') AND OBJECTPROPERTY(ID, N'IsProcedure') = 1) DROP PROC oap
+#scripts#:CREATE PROC oap AS BEGIN UPDATE SysUser SET email = GETDATE() WHERE UserId = 'DS' END
